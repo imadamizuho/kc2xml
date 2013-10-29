@@ -1,0 +1,57 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT document (sentence)+>
+<!ATTLIST document
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT sentence (chunk)+>
+<!ATTLIST sentence
+  xmlns CDATA #FIXED ''
+  S-ID NMTOKEN #REQUIRED
+  info CDATA #REQUIRED>
+
+<!ELEMENT chunk (tag)+>
+<!ATTLIST chunk
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  link CDATA #REQUIRED
+  rel (A|D|I|P) #REQUIRED>
+
+<!ELEMENT tag ((memo|rel)*,mode*,tok+)>
+<!ATTLIST tag
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  link CDATA #REQUIRED
+  rel (A|D|I|P) #REQUIRED>
+
+<!ELEMENT memo (#PCDATA)>
+<!ATTLIST memo
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT rel EMPTY>
+<!ATTLIST rel
+  xmlns CDATA #FIXED ''
+  sid NMTOKEN #IMPLIED
+  tag CDATA #IMPLIED
+  target CDATA #REQUIRED
+  type CDATA #REQUIRED>
+
+<!ELEMENT mode (#PCDATA)>
+<!ATTLIST mode
+  xmlns CDATA #FIXED ''
+  rel CDATA #REQUIRED>
+
+<!ELEMENT tok (#PCDATA)>
+<!ATTLIST tok
+  xmlns CDATA #FIXED ''
+  base CDATA #REQUIRED
+  cform CDATA #REQUIRED
+  ctype CDATA #REQUIRED
+  id CDATA #REQUIRED
+  pos (名詞-人名|名詞-普通名詞|助詞-副助詞|助詞-格助詞|動詞|名詞-数詞|接尾辞-名詞性名詞助数辞|名詞-サ変名詞|特殊-読点
+       |名詞-組織名|接頭辞-名詞接頭辞|助詞-接続助詞|特殊-括弧始|名詞-形式名詞|接尾辞-形容詞性述語接尾辞|特殊-句点
+       |接尾辞-名詞性名詞接尾辞|指示詞-連体詞形態指示詞|特殊-括弧終|形容詞|接続詞|特殊-記号|接尾辞-形容詞性名詞接尾辞
+       |名詞-時相名詞|名詞-地名|接尾辞-動詞性接尾辞|名詞-副詞的名詞|副詞|指示詞-名詞形態指示詞|連体詞
+       |接尾辞-名詞性述語接尾辞|判定詞|助動詞|接尾辞-名詞性特殊接尾辞|指示詞-副詞形態指示詞|接頭辞-ナ形容詞接頭辞|助詞-終助詞
+       |名詞-固有名詞|感動詞|未定義語-その他) #REQUIRED
+  read CDATA #REQUIRED>
